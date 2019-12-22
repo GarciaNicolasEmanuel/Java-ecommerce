@@ -1,4 +1,4 @@
-# Java-ecommerceSimple ecommerce using java with JSP pages, servlets and mysql
+# Simple ecommerce using java with JSP pages, servlets and mysql
 DATA BASE
 
 CREATE TABLE `cliente` (
