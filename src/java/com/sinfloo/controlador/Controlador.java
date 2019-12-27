@@ -9,7 +9,6 @@ import com.sinfloo.modelo.Carrito;
 import com.sinfloo.modelo.Producto;
 import com.sinfloo.modelo.ProductoDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -32,15 +31,40 @@ public class Controlador extends HttpServlet {
     double totalPagar=0.0;
     int cantidad=1;
     
+    int ipd;
+    Carrito car;
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String accion=request.getParameter("accion");
         productos=pdao.listar();
          switch (accion) {
+             case "Comprar":
+                 totalPagar=0.0;
+                 ipd=Integer.parseInt(request.getParameter("id"));
+                 p=pdao.listarId(ipd);
+                 item=item+1;
+                 car=new Carrito();
+                 car.setItem(item);
+                 car.setIdProductos(p.getId());
+                 car.setNombres(p.getNombres());
+                 car.setDescripcion(p.getDescription());
+                 car.setPrecioCompra(p.getPrecio());
+                 car.setCantidad(cantidad);
+                 car.setSubTotal(cantidad*p.getPrecio());
+                 listaCarrito.add(car);
+                 for (int i =0;i < listaCarrito.size(); i++ ){
+                     totalPagar=totalPagar+listaCarrito.get(i).getSubTotal();
+                 }
+                 request.setAttribute("carrito",totalPagar);
+                 request.setAttribute("carrito",listaCarrito);
+                 request.setAttribute("contador", listaCarrito.size());
+                 request.getRequestDispatcher("carrito.jsp").forward(request, response);
+                 
+                  break;
              case "AgregarCarrito":
-                 int udp=Integer.parseInt(request.getParameter("id"));
-                 p=pdao.listarId(udp);
+                 ipd=Integer.parseInt(request.getParameter("id"));
+                 p=pdao.listarId(ipd);
                  item=item+1;
                  Carrito car=new Carrito();
                  car.setItem(item);
@@ -53,6 +77,15 @@ public class Controlador extends HttpServlet {
                  listaCarrito.add(car);
                  request.setAttribute("contador", listaCarrito.size());
                  request.getRequestDispatcher("Controlador?accion=nombre").forward(request, response);
+                 
+                 break;
+             case "Delete":    
+                 int idproducto=Integer.parseInt(request.getParameter("idp"));
+                 for (int i=0;i< listaCarrito.size();i++) {
+                     if(listaCarrito.get(i).getIdProductos()==idproducto){
+                           listaCarrito.remove(i);
+                     }
+                 }
                  
                  break;
              case "Carrito":

@@ -24,7 +24,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="Controldor?accion=home">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="Controlador?accion=home">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Ofertas del día</a>
@@ -64,7 +64,7 @@
                         </div>
                         <div class="card-body">
                              <i>${p.getPrecio()}</i>
-                             <img src="ControladorOMG?id=${p.getId()}" width="200" height="180">
+                             <img src="ControladorIMG?id=${p.getId()}" width="200" height="180">
                         </div>
                         <div class="card-footer text-center">
                             <label>${p.getDescripcion()}</label>
