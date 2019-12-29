@@ -36,7 +36,7 @@
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
                 </form>
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
@@ -44,10 +44,10 @@
                             Iniciar Sesion
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Cuenta</a>
+                            <a class="dropdown-item" href="#">Compras</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="#">Cerrar sesion</a>
                         </div>
                     </li>
                 </ul>

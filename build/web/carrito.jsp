@@ -24,7 +24,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="Controldor?accion=home">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="Controlador?accion=home">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Ofertas del día</a>
@@ -36,7 +36,7 @@
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
                 </form>
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
@@ -44,10 +44,10 @@
                             Iniciar Sesion
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Cuenta</a>
+                            <a class="dropdown-item" href="#">Compras</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="#">Cerrar sesion</a>
                         </div>
                     </li>
                 </ul>
@@ -80,6 +80,10 @@
                                  </td>
                               <td>${car.getPrecioCompra()}</td>
                               <td>${car.getCantidad()}</td>
+                              <td>
+                                  <input type="hidden" id="idpro" value="${car.getIdProducto()}"
+                                  <input type="number" id="Cantidad"  value="${car.getCantidad()}" class="form-control text-center" min="1">
+                              </td>
                               <td>${car.getSubTotal()}</td>
                               <td>
                                   <input type="hidden" id="idp" calue="${car.getIdProducto()}">
@@ -108,7 +112,7 @@
                         </div>
                        <div class="card-footer">
                            <a class="btn btn-info btn-block">Realizar Pago</a>
-                           <a class="btn btn-danger btn-block">RGenerar Compra</a>
+                           <a class="btn btn-danger btn-block">Generar Compra</a>
                          </div>
                    </div>
                </div>

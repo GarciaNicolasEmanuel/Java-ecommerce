@@ -10,11 +10,24 @@ $(document).ready(function (){
                  $.ajax({
                   type: "POST",
                            url: yrl,
-                           data: "idp=" + idp,
+                           data: "ipd=" + ipd,
                            succes: function (data, teactStatus, jqXHR) {
                            alert("registro eliminado");
                            }
                     });
             }
+    $("TR #Cantidad").click(function (){
+       var ipd=$(this).parent().find("#idpro").val(); ç
+       var cantidad=$(this).parent().find("#Cantidad").val();
+       var url="Controlador?accion=ActualizarCantidad";
+       $ajax({
+          type: "POST",
+          url:url,
+          data: "ipd=" + ipd + "&Cantidad=" + cantidad,
+          success: function (data, textStatus, jqXHR) {
+              location.href="Controlador?accion=Carrito";
+          }
+       });
+    });        
 });
 

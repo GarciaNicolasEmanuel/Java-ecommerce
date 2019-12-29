@@ -6,6 +6,7 @@
 package com.sinfloo.controlador;
 
 import com.sinfloo.modelo.Carrito;
+import com.sinfloo.modelo.Cliente;
 import com.sinfloo.modelo.Producto;
 import com.sinfloo.modelo.ProductoDAO;
 import java.io.IOException;
@@ -63,18 +64,46 @@ public class Controlador extends HttpServlet {
                  
                   break;
              case "AgregarCarrito":
+                 int pos=0;
+                 cantidad=1;
                  ipd=Integer.parseInt(request.getParameter("id"));
                  p=pdao.listarId(ipd);
-                 item=item+1;
-                 Carrito car=new Carrito();
-                 car.setItem(item);
-                 car.setIdProductos(p.getId());
-                 car.setNombres(p.getNombres());
-                 car.setDescripcion(p.getDescription());
-                 car.setPrecioCompra(p.getPrecio());
-                 car.setCantidad(cantidad);
-                 car.setSubTotal(cantidad*p.getPrecio());
-                 listaCarrito.add(car);
+                 if(listaCarrito.size()>0) {
+                     for (int i=0; i<listaCarrito.size();i++) {
+                         if(ipd==listaCarrito.get(i).getIdProductos()){
+                             pos=i;
+                         }
+                     }
+                     if(ipd==listaCarrito.get(pos).getIdProductos()){
+                         cantidad=listaCarrito.get(pos).getCantidad()+cantidad;
+                         double subtotal=listaCarrito.get(pos).getPrecioCompra()*cantidad;
+                         listaCarrito.get(pos).setCantidad(cantidad);
+                         listaCarrito.get(pos).setSubTotal(subtotal);
+                     }else{
+                        item=item+1;
+                        Carrito car=new Carrito();
+                        car.setItem(item);
+                        car.setIdProductos(p.getId());
+                        car.setNombres(p.getNombres());
+                        car.setDescripcion(p.getDescription());
+                        car.setPrecioCompra(p.getPrecio());
+                        car.setCantidad(cantidad);
+                        car.setSubTotal(cantidad*p.getPrecio());
+                        listaCarrito.add(car);
+                     }
+                 }else{
+                    item=item+1;
+                    Carrito car=new Carrito();
+                    car.setItem(item);
+                    car.setIdProductos(p.getId());
+                    car.setNombres(p.getNombres());
+                    car.setDescripcion(p.getDescription());
+                    car.setPrecioCompra(p.getPrecio());
+                    car.setCantidad(cantidad);
+                    car.setSubTotal(cantidad*p.getPrecio());
+                    listaCarrito.add(car);
+                 }
+                 
                  request.setAttribute("contador", listaCarrito.size());
                  request.getRequestDispatcher("Controlador?accion=nombre").forward(request, response);
                  
@@ -88,6 +117,19 @@ public class Controlador extends HttpServlet {
                  }
                  
                  break;
+             case "ActualizarCantidad":
+                 int idpro=Integer.parseInt(request.getParameter("ipd"));
+                 int cant=Integer.parseInt(request.getParameter("Cantidad"));
+                 for (int i = 0; i < listaCarrito.size(); i++){
+                     if(listaCarrito.get(i).getIdProductos()==idpro){
+                     listaCarrito.get(i).setCantidad(cant);
+                     double st=listaCarrito.get(i).getPrecioCompra()*cant;
+                     listaCarrito.get(i).setSubTotal(st);
+                 }
+                 }
+                 
+                 break;
+                 
              case "Carrito":
                  totalPagar=0.0;
                  request.setAttribute("carrito", listaCarrito);
@@ -97,9 +139,20 @@ public class Controlador extends HttpServlet {
                  }
                  request.setAttribute("totalPagar", totalPagar);
                  break;
+             
+                 
+             case "Nuevo":
+                 listaCarrito = new ArrayList();
+                 request.getRequestDispatcher("Controlador?accion=home").forward(request, response);
+             break;
+                 
+             case "GenerarCompra":
+                //TODO
+             break;    
              default:
+             request.setAttribute("cont", listaCarrito.size());
              request.setAttribute("productos", productos);
-             request.getRequestDispatcher("index.jsp").forward(request, response);
+             request.getRequestDispatcher("index.jsp").forward(request, response);    
          }
     }
 
