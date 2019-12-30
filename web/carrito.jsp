@@ -16,7 +16,7 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">Store</a>
+            <a class="navbar-brand" href="Controlador?accion=home">Store</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -26,9 +26,7 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="Controlador?accion=home">Home <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Ofertas del día</a>
-                    </li>
+                    
 
                     <li class="nav-item">
                         <a class="nav-link" href="Controlador?accion=home">Seguir comprando</a>
@@ -36,7 +34,7 @@
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                    <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>-->
                 </form>
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
@@ -76,17 +74,15 @@
                               <td>${car.getItem()}</td>
                               <td>${car.getNombres()}</td>
                               <td>${car.getDescripcion()}
-                                 <img src="ControladorIMG?id=${car.getIdProducto()}" width="100" height="100">
+                                 <img src="ControladorIMG?id=${car.getIdProductos()}" width="100" height="100">
                                  </td>
                               <td>${car.getPrecioCompra()}</td>
                               <td>${car.getCantidad()}</td>
-                              <td>
-                                  <input type="hidden" id="idpro" value="${car.getIdProducto()}"
-                                  <input type="number" id="Cantidad"  value="${car.getCantidad()}" class="form-control text-center" min="1">
-                              </td>
+                              
                               <td>${car.getSubTotal()}</td>
+                              
                               <td>
-                                  <input type="hidden" id="idp" calue="${car.getIdProducto()}">
+                                  <input type="hidden" id="ipd" calue="${car.getIdProductos()}">
                                   <a href="#" id="btnDelete">eliminar</a>
                                   
                               </td>
@@ -103,11 +99,11 @@
                       </div>
                         <div class="card-body">
                             <label>Subtotal:</label>
-                            <input type="text" value="${totalPagar}" readonly="" class="form-control">
+                            <input type="text" value="$.${totalPagar}0" readonly="" class="form-control">
                              <label>Descripcion:</label>
                             <input type="text" value="$.0.00" readonly="" class="form-control">
                             <label>Total Pagar:</label>
-                            <input type="text" value="${totalPagar}" readonly="" class="form-control">
+                            <input type="text" value="$.${totalPagar}0" readonly="" class="form-control">
                            
                         </div>
                        <div class="card-footer">

@@ -15,14 +15,14 @@ public class Producto {
     int id;
     String nombres;
     InputStream foto;
-    String description;
+    String descripcion;
     double precio;
     int stock;
 
-    public Producto(int id, String nombres, String description, double precio, int stock) {
+    public Producto(int id, String nombres, String descripcion, double precio, int stock) {
         this.id = id;
         this.nombres = nombres;
-        this.description = description;
+        this.descripcion = descripcion;
         this.precio = precio;
         this.stock = stock;
     }
@@ -54,12 +54,12 @@ public class Producto {
         this.foto = foto;
     }
 
-    public String getDescription() {
-        return description;
+    public String getDescripcion() {
+        return descripcion;
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.descripcion = description;
     }
 
     public double getPrecio() {

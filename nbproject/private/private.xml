@@ -3,11 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/HP7900/Documents/NetBeansProjects/CarritoDeComprasWeb/web/js/funciones.js</file>
+            <file>file:/C:/Users/HP7900/Documents/NetBeansProjects/CarritoDeComprasWeb/src/java/com/sinfloo/modelo/ProductoDAO.java</file>
+            <file>file:/C:/Users/HP7900/Documents/NetBeansProjects/CarritoDeComprasWeb/src/java/com/sinfloo/modelo/Compra.java</file>
             <file>file:/C:/Users/HP7900/Documents/NetBeansProjects/CarritoDeComprasWeb/src/java/com/sinfloo/modelo/Carrito.java</file>
             <file>file:/C:/Users/HP7900/Documents/NetBeansProjects/CarritoDeComprasWeb/src/java/com/sinfloo/controlador/Controlador.java</file>
             <file>file:/C:/Users/HP7900/Documents/NetBeansProjects/CarritoDeComprasWeb/src/java/com/sinfloo/modelo/Producto.java</file>
+            <file>file:/C:/Users/HP7900/Documents/NetBeansProjects/CarritoDeComprasWeb/src/java/com/sinfloo/modelo/CompraDAO.java</file>
+            <file>file:/C:/Users/HP7900/Documents/NetBeansProjects/CarritoDeComprasWeb/web/compras.jsp</file>
+            <file>file:/C:/Users/HP7900/Documents/NetBeansProjects/CarritoDeComprasWeb/src/java/com/sinfloo/modelo/Cliente.java</file>
             <file>file:/C:/Users/HP7900/Documents/NetBeansProjects/CarritoDeComprasWeb/web/index.jsp</file>
+            <file>file:/C:/Users/HP7900/Documents/NetBeansProjects/CarritoDeComprasWeb/src/java/com/sinfloo/controlador/ControladorIMG.java</file>
             <file>file:/C:/Users/HP7900/Documents/NetBeansProjects/CarritoDeComprasWeb/web/carrito.jsp</file>
         </group>
     </open-files>

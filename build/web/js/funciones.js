@@ -1,6 +1,6 @@
 $(document).ready(function (){
     $("tr #btnDelete").click(function (){
-    var idp = $(this).parent().find("#idProducto").val();
+    var ipd = $(this).parent().find("#idProductos").val();
         
     eliminar(ipd);
 
@@ -9,14 +9,14 @@ $(document).ready(function (){
          var url = "Controlador?accion=Delete";
                  $.ajax({
                   type: "POST",
-                           url: yrl,
+                           url: url,
                            data: "ipd=" + ipd,
                            succes: function (data, teactStatus, jqXHR) {
                            alert("registro eliminado");
                            }
                     });
             }
-    $("TR #Cantidad").click(function (){
+    $("tr #Cantidad").click(function (){
        var ipd=$(this).parent().find("#idpro").val(); ç
        var cantidad=$(this).parent().find("#Cantidad").val();
        var url="Controlador?accion=ActualizarCantidad";

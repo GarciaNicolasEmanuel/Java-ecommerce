@@ -28,7 +28,7 @@ public class Controlador extends HttpServlet {
     Producto p=new Producto();
     List<Producto> productos=new ArrayList<>();
     List<Carrito> listaCarrito=new ArrayList<>();
-    int item;
+    int item=0;
     double totalPagar=0.0;
     int cantidad=1;
     
@@ -49,7 +49,7 @@ public class Controlador extends HttpServlet {
                  car.setItem(item);
                  car.setIdProductos(p.getId());
                  car.setNombres(p.getNombres());
-                 car.setDescripcion(p.getDescription());
+                 car.setDescripcion(p.getDescripcion());
                  car.setPrecioCompra(p.getPrecio());
                  car.setCantidad(cantidad);
                  car.setSubTotal(cantidad*p.getPrecio());
@@ -85,7 +85,7 @@ public class Controlador extends HttpServlet {
                         car.setItem(item);
                         car.setIdProductos(p.getId());
                         car.setNombres(p.getNombres());
-                        car.setDescripcion(p.getDescription());
+                        car.setDescripcion(p.getDescripcion());
                         car.setPrecioCompra(p.getPrecio());
                         car.setCantidad(cantidad);
                         car.setSubTotal(cantidad*p.getPrecio());
@@ -97,7 +97,7 @@ public class Controlador extends HttpServlet {
                     car.setItem(item);
                     car.setIdProductos(p.getId());
                     car.setNombres(p.getNombres());
-                    car.setDescripcion(p.getDescription());
+                    car.setDescripcion(p.getDescripcion());
                     car.setPrecioCompra(p.getPrecio());
                     car.setCantidad(cantidad);
                     car.setSubTotal(cantidad*p.getPrecio());
@@ -133,22 +133,18 @@ public class Controlador extends HttpServlet {
              case "Carrito":
                  totalPagar=0.0;
                  request.setAttribute("carrito", listaCarrito);
-                 request.getRequestDispatcher("carrito.jsp").forward(request, response);
+                 
                  for (int i =0;i < listaCarrito.size(); i++ ){
                      totalPagar=totalPagar+listaCarrito.get(i).getSubTotal();
                  }
                  request.setAttribute("totalPagar", totalPagar);
+                 request.getRequestDispatcher("carrito.jsp").forward(request, response);
                  break;
-             
-                 
-             case "Nuevo":
-                 listaCarrito = new ArrayList();
-                 request.getRequestDispatcher("Controlador?accion=home").forward(request, response);
-             break;
-                 
+            
              case "GenerarCompra":
                 //TODO
-             break;    
+             break;   
+                 
              default:
              request.setAttribute("cont", listaCarrito.size());
              request.setAttribute("productos", productos);

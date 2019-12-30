@@ -13,6 +13,8 @@
         <title>JSP Page</title>
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -26,12 +28,10 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="Controlador?accion=home">Home <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Ofertas del día</a>
-                    </li>
+                    
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="Controlador?accion=Carrito"><i class="fas fa-cart-plus">(<label style="color: orange">${contador}</label>)</i>Carrito</a>
+                        <a class="nav-link" href="Controlador?accion=Carrito"><i class="fa fa-shopping-cart">(<label style="color: orange">${contador}</label>)</i>Carrito</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
@@ -64,13 +64,13 @@
                         </div>
                         <div class="card-body">
                              <i>${p.getPrecio()}</i>
-                             <img src="ControladorIMG?id=${p.getId()}" width="200" height="180">
+                             <img src="ControladorIMG?id=${p.getId()}" width="180" height="160">
                         </div>
                         <div class="card-footer text-center">
                             <label>${p.getDescripcion()}</label>
                             <div>
-                                <a href="Controlador?accion=AgregarCarrito&id${p.getId()}" class="btn btn-outline-info">Agregar a Carrito</a>
-                                <a href="#" class="btn btn-danger">Comprar</a>
+                                <a href="Controlador?accion=AgregarCarrito&id=${p.getId()}" class="btn btn-outline-info">Agregar a Carrito</a>
+                                <a href="Controlador?accion=Carrito&id=${p.getId()}" class="btn btn-danger">Comprar</a>
                             </div>
                         </div>
                     </div>
