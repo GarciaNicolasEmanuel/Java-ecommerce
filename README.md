@@ -1,4 +1,4 @@
-# Simple ecommerce using java with JSP pages, servlets and mysql
+# Simple ecommerce site using java with JSP pages, servlets and mysql
 
 DATA BASE
 
