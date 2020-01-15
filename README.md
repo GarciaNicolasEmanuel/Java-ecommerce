@@ -1,7 +1,6 @@
 # Simple ecommerce site using java with JSP pages, servlets and mysql
 
 DATA BASE
-
 CREATE TABLE `cliente` (
   `idCliente` int(11) UNSIGNED NOT NULL,
   `Dni` varchar(9) DEFAULT NULL,
